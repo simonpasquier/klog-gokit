@@ -1,23 +1,22 @@
-# glog-gokit
+# klog-gokit
 
-This packages is a replacement for [glog](github.com/golang/glog)
+This packages is a replacement for [klog](https://github.com/kubernetes/klog)
 in projects that use the [go-kit logger](https://godoc.org/github.com/go-kit/kit/log).
 
-It is inspired by istio's glog package for zap:
-https://github.com/istio/glog
+It is heavily inspired by the [`github.com/kubermatic/glog-gokit`](https://github.com/kubermatic/glog-gokit) package.
 
 ## Usage
 
-Override the official glog package with this one.
-This simply replaces the code in `vendor/golang/glog` with the code of this package.
+Override the official klog package with this one.
+This simply replaces the code in `vendor/k8s.io/klog` with the code of this package.
 
 **With dep**
 
 In your `Gopkg.toml`:
 ```toml
 [[override]]
-  name = "github.com/golang/glog"
-  source = "github.com/kubermatic/glog-gokit"
+  name = "k8s.io/klog"
+  source = "github.com/simonpasquier/klog-gokit"
 ```
 
 **With Go modules**
@@ -25,13 +24,13 @@ In your `Gopkg.toml`:
 Add this line to your `go.mod` file:
 
 ```
-replace github.com/golang/glog => github.com/kubermatic/glog-gokit master
+replace k8s.io/klog => github.com/kubermatic/klog-gokit master
 ```
 
 In your `main.go`:
 ```go
-// Import the package like it is original glog
-import "github.com/golang/glog"
+// Import the package like it is original klog
+import "k8s.io/klog"
 
 
 // Create go-kit logger in your main.go
@@ -40,16 +39,16 @@ logger = log.With(logger, "ts", log.DefaultTimestampUTC)
 logger = log.With(logger, "caller", log.DefaultCaller)
 logger = level.NewFilter(logger, level.AllowAll())
 
-// Overriding the default glog with our go-kit glog implementation.
+// Overriding the default klog with our go-kit klog implementation.
 // Thus we need to pass it our go-kit logger object.
-glog.SetLogger(logger)
+klog.SetLogger(logger)
 ```
 
-Setting the logger to the glog package **MUST** happen before using glog in any package.
+Setting the logger to the klog package **MUST** happen before using klog in any package.
 
 ## Function Levels
 
-|     glog     | gokit |
+|     klog     | gokit |
 | ------------ | ----- |
 | Info         | Debug |
 | InfoDepth    | Debug |
