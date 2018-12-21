@@ -72,3 +72,7 @@ Setting the logger to the klog package **MUST** happen before using klog in any 
 | Fatalln      | Error |
 
 This table is rather opinionated and build for use with the Kubernetes' [Go client](https://github.com/kubernetes/client-go).
+
+## License
+
+Apache License 2.0, see [LICENSE](https://github.com/simonpasquier/klog-gokit/blob/master/LICENSE).
