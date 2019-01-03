@@ -24,7 +24,7 @@ In your `Gopkg.toml`:
 Add this line to your `go.mod` file:
 
 ```
-replace k8s.io/klog => github.com/kubermatic/klog-gokit master
+replace k8s.io/klog => github.com/simonpasquier/klog-gokit master
 ```
 
 In your `main.go`:
