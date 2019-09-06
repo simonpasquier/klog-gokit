@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - checkout
-    - run: cd .. && go get github.com/golangci/golangci-lint/cmd/golangci-lint@v1.17.1
+    - run: cd .. && go get github.com/golangci/golangci-lint/cmd/golangci-lint@master
     - run: go mod download
     - run: golangci-lint run
     - run: go test -v ./...
