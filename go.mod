@@ -7,3 +7,5 @@ require (
 	github.com/go-stack/stack v1.8.0 // indirect
 	github.com/stretchr/testify v1.4.0
 )
+
+go 1.12
