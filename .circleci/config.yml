@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - checkout
-    - run: curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s -- -b $(go env GOPATH)/bin v1.18.0
+    - run: curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s -- -b $(go env GOPATH)/bin v1.31.0
     - run: go mod download
     - run: golangci-lint run
     - run: go test -v ./...
@@ -24,14 +24,14 @@ workflows:
   main:
     jobs:
     - build:
-        name: go1.12
-        golang_version: "1.12"
+        name: go1.14
+        golang_version: "1.14"
         filters:
           tags:
             only: /.*/
     - build:
-        name: go1.13
-        golang_version: "1.13"
+        name: go1.15
+        golang_version: "1.15"
         filters:
           tags:
             only: /.*/
