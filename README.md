@@ -1,7 +1,7 @@
 # klog-gokit [![CircleCI](https://circleci.com/gh/simonpasquier/klog-gokit.svg?style=svg)](https://circleci.com/gh/simonpasquier/klog-gokit)
 
 This package is a replacement for [k8s.io/klog](https://github.com/kubernetes/klog)
-in projects that use the [go-kit logger](https://godoc.org/github.com/go-kit/kit/log).
+in projects that use the [go-kit logger](https://godoc.org/github.com/go-kit/log).
 
 It also supports [k8s.io/klog/v2](https://pkg.go.dev/k8s.io/klog/v2).
 
