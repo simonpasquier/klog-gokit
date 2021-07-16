@@ -48,19 +48,11 @@ jobs:
       - run: curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s -- -b $(go env GOPATH)/bin v1.31.0
       - test:
           working_directory: .
-      - test:
-          working_directory: ./v2
       - when:
           condition: << parameters.check_modules >>
           steps:
             - gomod:
                 working_directory: .
-      - when:
-          working_directory: ./v2
-          condition: << parameters.check_modules >>
-          steps:
-            - gomod:
-                working_directory: ./v2
 
 workflows:
   version: 2
@@ -75,6 +67,12 @@ workflows:
       - build:
           name: go1.15
           golang_version: "1.15"
+          filters:
+            tags:
+              only: /.*/
+      - build:
+          name: go1.16
+          golang_version: "1.16"
           filters:
             tags:
               only: /.*/
