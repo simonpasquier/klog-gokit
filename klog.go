@@ -141,3 +141,17 @@ func Exitf(format string, args ...interface{}) {
 	level.Error(logger).Log("func", "Exitf", "msg", fmt.Sprintf(format, args...))
 	os.Exit(1)
 }
+
+// ObjectRef references a kubernetes object
+type ObjectRef struct {
+	Name      string `json:"name"`
+	Namespace string `json:"namespace,omitempty"`
+}
+
+// KRef returns ObjectRef from name and namespace
+func KRef(namespace, name string) ObjectRef {
+	return ObjectRef{
+		Name:      name,
+		Namespace: namespace,
+	}
+}
