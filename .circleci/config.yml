@@ -38,14 +38,14 @@ jobs:
         default: false
 
     docker:
-      - image: circleci/golang:<< parameters.golang_version >>
+      - image: cimg/go:<< parameters.golang_version >>
 
     environment:
       GO111MODULE: "on"
 
     steps:
       - checkout
-      - run: curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s -- -b $(go env GOPATH)/bin v1.31.0
+      - run: curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.50.1
       - test:
           working_directory: .
       - when:
@@ -59,20 +59,20 @@ workflows:
   main:
     jobs:
       - build:
-          name: go1.14
-          golang_version: "1.14"
+          name: go1.17
+          golang_version: "1.17"
           filters:
             tags:
               only: /.*/
       - build:
-          name: go1.15
-          golang_version: "1.15"
+          name: go1.18
+          golang_version: "1.18"
           filters:
             tags:
               only: /.*/
       - build:
-          name: go1.16
-          golang_version: "1.16"
+          name: go1.19
+          golang_version: "1.19"
           filters:
             tags:
               only: /.*/
