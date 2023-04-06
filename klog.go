@@ -124,6 +124,10 @@ func Errorf(format string, args ...interface{}) {
 	level.Error(logger).Log("func", "Errorf", "msg", fmt.Sprintf(format, args...))
 }
 
+func ErrorS(err error, msg string, keysAndValues ...interface{}) {
+	level.Error(logger).Log("func", "ErrorS", "msg", msg, "err", err, keysAndValues)
+}
+
 func Fatal(args ...interface{}) {
 	level.Error(logger).Log("func", "Fatal", "msg", fmt.Sprint(args...))
 	os.Exit(255)
