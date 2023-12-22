@@ -59,20 +59,20 @@ workflows:
   main:
     jobs:
       - build:
-          name: go1.17
-          golang_version: "1.17"
-          filters:
-            tags:
-              only: /.*/
-      - build:
-          name: go1.18
-          golang_version: "1.18"
-          filters:
-            tags:
-              only: /.*/
-      - build:
           name: go1.19
           golang_version: "1.19"
+          filters:
+            tags:
+              only: /.*/
+      - build:
+          name: go1.20
+          golang_version: "1.20"
+          filters:
+            tags:
+              only: /.*/
+      - build:
+          name: go1.21
+          golang_version: "1.21"
           filters:
             tags:
               only: /.*/
