@@ -1,5 +1,7 @@
 module github.com/simonpasquier/klog-gokit/v3
 
+go 1.26
+
 require (
 	github.com/go-kit/log v0.2.1
 	github.com/go-logr/logr v1.4.2
@@ -12,5 +14,3 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
-
-go 1.17

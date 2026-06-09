@@ -45,7 +45,7 @@ jobs:
 
     steps:
       - checkout
-      - run: curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.55.2
+      - run: curl -sSfL https://golangci-lint.run/install.sh | sh -s -- -b $(go env GOPATH)/bin v2.12.2
       - test:
           working_directory: .
       - when:
@@ -59,20 +59,14 @@ workflows:
   main:
     jobs:
       - build:
-          name: go1.19
-          golang_version: "1.19"
+          name: go1.25
+          golang_version: "1.25"
           filters:
             tags:
               only: /.*/
       - build:
-          name: go1.20
-          golang_version: "1.20"
-          filters:
-            tags:
-              only: /.*/
-      - build:
-          name: go1.21
-          golang_version: "1.21"
+          name: go1.26
+          golang_version: "1.26"
           filters:
             tags:
               only: /.*/

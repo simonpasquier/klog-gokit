@@ -1,9 +1,13 @@
-issues:
-  exclude-rules:
-  - path: _test.go
-    linters:
-    - errcheck
+version: "2"
 
-linters-settings:
-  errcheck:
-    exclude: .errcheck_excludes
+linters:
+  exclusions:
+    rules:
+    - path: _test.go
+      linters:
+      - errcheck
+
+  settings:
+    errcheck:
+      exclude-functions:
+      - (github.com/go-kit/log.Logger).Log
