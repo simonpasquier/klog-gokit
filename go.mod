@@ -2,7 +2,7 @@ module github.com/simonpasquier/klog-gokit/v3
 
 require (
 	github.com/go-kit/log v0.2.1
-	github.com/go-logr/logr v1.4.2
+	github.com/go-logr/logr v1.4.4
 	github.com/stretchr/testify v1.9.0
 )
 
